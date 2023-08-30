@@ -10,22 +10,22 @@ const initialState = {
 }
 
 const handlePending=(state)=> {
-state.isLoading(true)
+state.isLoading= true
 state.error= ''
 }
 
 
 const handleRejected = (state,action)=>{
-    state.isLoading(true)
+    state.isLoading= true
     state.error = action.payload
 }
 
 const handleFulfilled = (state)=>{
-    state.isLoading(false)
+    state.isLoading = false
 }
 
  const fetchAllContacts= (state,{payload})=>{
-    state.isLoading(false)
+    state.isLoading= false
     state.items = payload.items
 }
 
