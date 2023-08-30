@@ -12,12 +12,12 @@ import { updateFilter } from "redux/contactSlice.js";
 
 
 export const App=() => {
-  const contacts = useSelector(state=>state.contacts.contacts)
+  const contacts = useSelector(state=>state.contacts.contacts.items)
   const filter = useSelector(state=>state.contacts.filter)
   const dispatch = useDispatch()
 
-const filterContacts = contacts.filter(contact =>
-  contact.name && contact.name.toLowerCase().includes(filter.toLowerCase())
+
+  const filterContacts = contacts.filter(contact => contact.name && contact.name.toLowerCase().includes(filter.toLowerCase())
 );
 
 
