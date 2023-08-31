@@ -10,31 +10,31 @@ const initialState = {
 }
 
 const handlePending=(state)=> {
-state.isLoading= true
-state.error= ''
+state.contacts.isLoading= true
+state.contacts.error= ''
 }
 
 
 const handleRejected = (state,action)=>{
-    state.isLoading= true
+    state.contacts.isLoading= false
     state.error = action.payload
 }
 
 const handleFulfilled = (state)=>{
-    state.isLoading = false
+    state.contacts.isLoading = false
 }
 
  const fetchAllContacts= (state,{payload})=>{
-    state.isLoading= false
-    state.items = payload.items
+    state.contacts.isLoading= false
+    state.contacts.items = payload
 }
 
 const addContactsFulfilled = (state,{payload})=>{
-state.items.push(payload)
+state.contacts.items.push(payload)
 }
 
 const deleteContactsFulfilled = (state,{payload})=>{
-    state.items = state.items.filter(contact=> contact.id !==payload.id)
+    state.contacts.items = state.contacts.items.filter(contact=> contact.id !==payload)
 }
 
 
